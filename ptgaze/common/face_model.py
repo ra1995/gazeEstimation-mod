@@ -26,9 +26,10 @@ class FaceModel:
         # The default values of rvec and tvec below mean that the
         # initial estimate of the head pose is not rotated and the
         # face is in front of the camera.
-        rvec = np.zeros(3, dtype=np.float)
-        tvec = np.array([0, 0, 1], dtype=np.float)
-        _, rvec, tvec = cv2.solvePnP(self.LANDMARKS,
+        obj_landmarks = self.LANDMARKS.astype(np.float32)
+        rvec = np.zeros(3, dtype=np.float32)
+        tvec = np.array([0, 0, 1], dtype=np.float32)
+        _, rvec, tvec = cv2.solvePnP(obj_landmarks,
                                      face.landmarks,
                                      camera.camera_matrix,
                                      camera.dist_coefficients,

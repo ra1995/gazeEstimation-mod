@@ -4,7 +4,7 @@ from scipy.spatial.transform import Rotation
 import sys
 sys.path.insert(0, '../common')
 
-from common import Camera, FaceParts, FacePartsName # type: ignore
+from ..common import Camera, FaceParts, FacePartsName # type: ignore
 
 
 def _normalize_vector(vector: np.ndarray) -> np.ndarray:
